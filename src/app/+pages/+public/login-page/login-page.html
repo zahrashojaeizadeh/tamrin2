@@ -1,17 +1,33 @@
 <section class="login">
     <div>
-        <label for="">نام کاربری</label>
-        <input type="text" placeholder="نام کاربری">
+        <label for="username">نام کاربری</label>
+        <input #un="ngModel" [class.problem]="un.touched && username==''" [(ngModel)]="username" id="username" type="text" placeholder="نام کاربری">
+        @if (un.touched && username=='') {
+             <label class="subtitle">الزامی است😢</label> 
+        }
+        @else {😎}
+        
     </div>
     <div>
-        <label for="">کلمه عبور</label>
-        <input type="password" placeholder="کلمه عبور">
+        <label for="password">کلمه عبور</label>
+        <input #pw="ngModel" [class.problem]="pw.touched && password==''" [(ngModel)]="password" id="password" type="password" placeholder="کلمه عبور">
+        @if (pw.touched && password=='') {
+              <label class="subtitle">الزامی است😢</label>
+        }
+        @else {😎}
+         
     </div>
     <div>
-        <input type="checkbox"> 
-        <label for="">من را به خاطر بسپار</label>
+        <input  [(ngModel)]="remember" id="remember" type="checkbox"> 
+        <label for="remember">من را به خاطر بسپار</label>
     </div>
     <div>
-        <button>ورود</button>
+        <button [disabled]="username=='' || password=='' " (click)="check()">ورود</button>
     </div>
+    @if (message!='') {
+        <div class="message">
+            {{message}}
+        </div>
+    }
+        
 </section>
