@@ -1,6 +1,6 @@
-$primary-surface:rgb(147,12,147);
-$normal-surfact:rgb(246,174,246);
-$hot-link:rgb(142,140,15);
+$primary-surface:rgb(12,102,147);
+$normal-surfact:rgb(174,212,246);
+$hot-link:rgb(235,215,34);
 .banner{
     background-color: $primary-surface;
     color: white;
@@ -13,9 +13,10 @@ $hot-link:rgb(142,140,15);
 .menu{
     background-color: $normal-surfact;
     display: flex;
+    justify-content: center;
     gap: 0.3em;
     padding: 0.3em;
-    a{
+     a{
     background-color: $primary-surface;
     color: white;
     text-decoration: none;
@@ -23,8 +24,11 @@ $hot-link:rgb(142,140,15);
     min-width: 80px;
     text-align: center;
     border-radius: 0.3em;
-}
+    }
+     a:hover{
+        background-color: $hot-link;
+    }
     .divider{
-        flex:auto;
+        flex:1 1 auto;
     }
 }
