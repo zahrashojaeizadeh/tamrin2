@@ -1,0 +1,30 @@
+$primary-surface:rgb(147,12,147);
+$normal-surfact:rgb(246,174,246);
+$hot-link:rgb(142,140,15);
+.banner{
+    background-color: $primary-surface;
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px black;
+    padding: 1.5em;
+}
+.menu{
+    background-color: $normal-surfact;
+    display: flex;
+    gap: 0.3em;
+    padding: 0.3em;
+    a{
+    background-color: $primary-surface;
+    color: white;
+    text-decoration: none;
+    padding: 0.2em;
+    min-width: 80px;
+    text-align: center;
+    border-radius: 0.3em;
+}
+    .divider{
+        flex:auto;
+    }
+}
