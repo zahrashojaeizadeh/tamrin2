@@ -1,4 +1,4 @@
-<section class="login-container ">
+<section class="login-container">
   <div class="login-card">
     <h2 class="title">ورود به حساب</h2>
     <p class="subtitle">لطفاً اطلاعات خود را وارد کنید</p>
@@ -46,12 +46,10 @@
         <span class="error-text"
               *ngIf="loginForm.controls['password']?.invalid && loginForm.controls['password']?.touched">
           الزامی است 😢
-          
         </span>
-         <input type="checkbox">
-      <label>من را به خاطر بسپار</label>
+        <input type="checkbox">
+        <label>من را به خاطر بسپار</label>
       </div>
-     
 
       <!-- دکمه ورود -->
       <button class="login-btn" [disabled]="loginForm.invalid" >ورود</button>
