@@ -1,11 +1,34 @@
-<section class="banner">سامانه مدیریت فروشگاه من</section>
-<section class="menu">
-    <a href="">داشبورد</a>
-    <a href="">کاربران</a>
-    <a href="">محصولات</a>
-    <a href="">سفارشات</a>
-    <a href="">خروج</a>
+<section class="header-banner">
+    <div class="banner-bg banner"></div>
+    <h1 class="banner-text">سامانه مدیریت فروشگاه من</h1>
+    <div class="bubbles">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
 </section>
+<nav class="menu">
+    <input type="checkbox" id="menu-toggle"/>
+    <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+    <ul class="menu-links menu">
+        <li style="--i:0;"> <a routerLink="">داشبورد</a></li>
+        <li style="--i:1;"><a routerLink="">کاربران</a></li>
+        <li style="--i:2;"><a routerLink="">محصولات</a></li>
+        <li style="--i:3;"><a routerLink="">سفارشات</a></li>
+        <li style="--i:4;"> <a routerLink="">خروج</a></li>
+    </ul>
+</nav>
 <section class="content">
     <router-outlet></router-outlet>
 </section>
+
+
+
+   
+    
+    
+    
+   

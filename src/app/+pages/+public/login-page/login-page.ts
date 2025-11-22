@@ -16,7 +16,7 @@ export class LoginPage {
   message:string='';
   check(){
 if (this.username=='admin' && this.password=='admin') {
-    this.router.navigateByUrl('/private')
+    this.router.navigateByUrl('/public')
 } else {
     this.message='نام کاربری یا کلمه عبور صحیح نیست'
 }

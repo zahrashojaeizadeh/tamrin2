@@ -1,13 +1,27 @@
-<section class="banner">به فروشگاه من خوش اومدید</section>
-<section class="menu">
-    <a routerLink="home">خانه</a>
-    <a routerLink="about">درباره</a>
-    <a routerLink="products">محصولات</a>
-    <a routerLink="content">تماس</a>
-    <span class="divider"></span>
-    <a routerLink="login">ورود</a>
-    <a href="">ثبت خرید</a>
+<section class="header-banner">
+    <div class="banner-bg"></div>
+    <h1 class="banner-text">به فروشگاه من خوش اومدید</h1>
+    <div class="bubbles">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
 </section>
+<nav class="menu">
+    <input type="checkbox" id="menu-toggle"/>
+    <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+    <ul class="menu-links">
+        <li style="--i:0;"><a routerLink="home">خانه</a></li>
+        <li style="--i:1;"><a routerLink="about">درباره</a></li>
+        <li style="--i:2;"><a routerLink="products">محصولات</a></li>
+        <li style="--i:3;"><a routerLink="content">تماس</a></li>
+        <li style="--i:4;"><a routerLink="login">ورود</a></li>
+        <li style="--i:5;"><a routerLink="">ثبت</a></li> 
+    </ul>
+</nav>
 <section class="content">
     <router-outlet></router-outlet>
 </section>

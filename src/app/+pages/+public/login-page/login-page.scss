@@ -1,101 +1,206 @@
-$primary-surface:rgb(12,102,147);
-$normal-surface:rgb(114, 132, 148);
-:host{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 60vh;
-}
-.login{
-    width: 230px;
-    background-color: white;
-    padding: 1.3em;
-    border: 1px solid gray;
-    border-radius: 0.3em;
-    box-shadow: 0 0 0.8em 0.2em gray; 
-    div{
-        margin: 0.5 0;
-        input[type=text],input[type=password]{
-            width: 100%;
-            box-sizing: border-box;
-            padding: 0.4em;
-        }
-        input:focus{
-            outline-color: $normal-surface 2px;
-        }
-    }
-    label:not(:last-child){
-        display: block;
-    }
-    button{
-        width: 100%;
-        background-color: $primary-surface;
-        color: white;
-        padding: 0.4em;
-        border: none;
-        border-radius: 0.3em;
-    }
-    button[disabled]{
-        background-color: silver;
-    }
-    button[disabled]:hover{
-       cursor: not-allowed;
-    }
+/* 🎨 متغیرهای اصلی */
+$color-primary: #007BFF;
+$color-accent: #ffdce3;
+$color-text-dark: #000;
+$color-text-light: #333333;
+$color-error: #f88d8d;
+$color-border: #bfbfbf;
+$color-input-bg: rgba(44, 44, 44, 0.2);
 
-    button:hover{
-        cursor: pointer;
+/* شعاع، سایه و سرعت */
+$radius: 16px;
+$shadow: 0 15px 30px rgba(0,0,0,0.25);
+$transition: 0.3s ease;
 
-    }
+/* باکس سایزینگ عمومی */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
-.message{
-    background-color: rgb(240,158,158);
-    color: yellow;
-    font-size: small;
-    padding: 0.4em;
-    border-radius: 0.3em; 
-    text-align: center;
+/* پس‌زمینه */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(150deg, $color-primary, $color-accent);
 }
 
-.problem{
-   // background-color: rgb(235,183,183);
-   outline: 2px solid rgb(249,157,157);
+/* کارت لاگین */
+.login-card {
+  width: 380px;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(18px);
+  border: 1px solid $color-primary;
+  box-shadow: $shadow;
 }
-.subtitle{
-    font-size: small;
-    color: gray;
+
+/* عنوان */
+.title {
+  text-align: center;
+  color: $color-text-light;
+  font-size: 26px;
+  margin-bottom: 10px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.form-group{
-    position: relative;
-    margin-bottom: 20px;
+/* توضیح */
+.subtitle {
+  text-align: center;
+  color: #eee;
+  font-size: 14px;
+  margin-bottom: 25px;
 }
-.form-input{
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 5px;
+
+/* گروه ورودی */
+.input-group {
+  position: relative;
+  margin-bottom: 32px;
+
+  &.error .input-field {
+    border-color: $color-error !important;
+  }
 }
-.form-input:invalid{
-    border-color: red;
+
+/* لیبل */
+.input-label {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  color: $color-text-dark;
+  font-size: 16px;
+  font-weight: bold;
+  transition: $transition;
+  background: transparent;
+  pointer-events: none;
 }
-.form-input:invalid{
-    visibility: visible;
+
+/* فوکوس / پرشدن */
+.input-field:focus + .input-label,
+.input-field:not(:placeholder-shown) + .input-label {
+  top: -10px;
+  font-size: 12px;
+  background: transparent !important;
+  padding: 0 4px;
+  color: $color-primary;
+}
+
+/* فیلد */
+.input-field {
+  width: 100%;
+  padding: 12px;
+  border-radius: $radius;
+  border: 2px solid $color-border;
+  background: $color-input-bg;
+  color: $color-text-light;
+  font-size: 15px;
+  transition: $transition;
+
+  &:focus {
+    border-color: $color-primary;
+    background: rgba(255,255,255,0.35);
+  }
+}
+
+/* متن خطا */
+.error-text {
+  position: absolute;
+  right: 5px;
+  bottom: -18px;
+  font-size: 12px;
+  color: $color-error;
+}
+
+/* دکمه */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: $color-primary;
+  color: $color-text-light;
+  border: none;
+  border-radius: $radius;
+  font-size: 16px;
+  cursor: pointer;
+  transition: $transition;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):hover {
+    background: $color-accent;
+    transform: translateY(-3px);
+  }
+}
+/* انیمیشن لرزش زمان خطا */
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+}
+
+/* گروه ورودی */
+.input-group {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+/* ورودی‌ها */
+.input-field {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #bfbfbf;
+  border-radius: 14px;
+  background: rgba(114, 114, 114, 0.2);
+  color: #4b4b4b;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+/* فوکوس */
+.input-field:focus {
+  border-color: #64abf7;
+  background: rgba(255,255,255,0.3);
+}
+
+/* لیبل */
+.input-label {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  transition: 0.3s;
+}
+
+/* لیبل بالا بره */
+.input-field:focus + .input-label,
+.input-field:not(:placeholder-shown) + .input-label {
+  top: -10px;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0 4px;
+  color: #161616;
+}
+
+/* خطای ورودی */
+.input-group.error .input-field {
+  border-color: rgb(255, 129, 129) !important;
+  animation: shake 0.25s ease-in-out;
+}
+
+.input-group.error .input-label {
+  color: rgb(255, 129, 129) !important;
+}
+
+/* پیام خطا */
+.error-text {
+  position: absolute;
+  bottom: -20px;
+  right: 5px;
+  font-size: 12px;
+  color: rgb(255, 129, 129);
 }

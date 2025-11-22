@@ -1,33 +1,66 @@
-<section class="login">
-    <div>
-        <label for="username">نام کاربری</label>
-        <input #un="ngModel" [class.problem]="un.touched && username==''" [(ngModel)]="username" id="username" type="text" placeholder="نام کاربری">
-        @if (un.touched && username=='') {
-             <label class="subtitle">الزامی است😢</label> 
-        }
-        @else {😎}
-        
-    </div>
-    <div>
-        <label for="password">کلمه عبور</label>
-        <input #pw="ngModel" [class.problem]="pw.touched && password==''" [(ngModel)]="password" id="password" type="password" placeholder="کلمه عبور">
-        @if (pw.touched && password=='') {
-              <label class="subtitle">الزامی است😢</label>
-        }
-        @else {😎}
-         
-    </div>
-    <div>
-        <input  [(ngModel)]="remember" id="remember" type="checkbox"> 
-        <label for="remember">من را به خاطر بسپار</label>
-    </div>
-    <div>
-        <button [disabled]="username=='' || password=='' " (click)="check()">ورود</button>
-    </div>
-    @if (message!='') {
+<section class="login-container ">
+  <div class="login-card">
+    <h2 class="title">ورود به حساب</h2>
+    <p class="subtitle">لطفاً اطلاعات خود را وارد کنید</p>
+
+    <form #loginForm="ngForm" (ngSubmit)="check()">
+
+      <!-- نام کاربری -->
+      <div class="input-group"
+           [class.error]="loginForm.controls['username']?.invalid && loginForm.controls['username']?.touched">
+
+        <input 
+          type="text"
+          id="username"
+          name="username"
+          [(ngModel)]="username"
+          class="input-field"
+          placeholder=""
+          required
+        />
+
+        <label class="input-label" for="username">نام کاربری</label>
+
+        <span class="error-text"
+              *ngIf="loginForm.controls['username']?.invalid && loginForm.controls['username']?.touched">
+          الزامی است 😢
+        </span>
+      </div>
+
+      <!-- کلمه عبور -->
+      <div class="input-group"
+           [class.error]="loginForm.controls['password']?.invalid && loginForm.controls['password']?.touched">
+
+        <input 
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          class="input-field"
+          placeholder=""
+          required
+        />
+
+        <label class="input-label" for="password">کلمه عبور</label>
+
+        <span class="error-text"
+              *ngIf="loginForm.controls['password']?.invalid && loginForm.controls['password']?.touched">
+          الزامی است 😢
+          
+        </span>
+         <input type="checkbox">
+      <label>من را به خاطر بسپار</label>
+      </div>
+     
+
+      <!-- دکمه ورود -->
+      <button class="login-btn" [disabled]="loginForm.invalid" >ورود</button>
+      
+      @if (message!='') {
         <div class="message">
-            {{message}}
+        {{message}}
         </div>
-    }
-        
+      }
+    </form>
+  </div>
 </section>

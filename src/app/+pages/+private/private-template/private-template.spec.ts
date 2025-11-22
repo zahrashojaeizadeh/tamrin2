@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PrivateTemplate } from './private-template';
 
-describe('PrivateTemplate', () => {
+describe('PublicTemplate', () => {
   let component: PrivateTemplate;
   let fixture: ComponentFixture<PrivateTemplate>;
 
